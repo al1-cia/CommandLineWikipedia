@@ -24,6 +24,7 @@ Brandsta City Släckers
 Brandsta City Släckers is a Swedish band composed mostly of firefighters.
 
 C:\Users\Administrator\scripts>**wiki backlinks** Balu Brigada
+
 Pages linking to 'Balu Brigada':
 1. List of New Zealand musicians
 2. Bridgestone Arena
@@ -37,6 +38,7 @@ Pages linking to 'Balu Brigada':
 10. Backseat
 
 C:\Users\Administrator\scripts>**wiki search** Southside
+
 Results for 'Southside':
 1. Southside
 2. Southside Johnny
@@ -50,6 +52,7 @@ Results for 'Southside':
 10. Southside (Virginia)
 
 C:\Users\Administrator\scripts>**wiki links** Jack the Ripper
+
 Links from 'Jack the Ripper' (10 shown)
 (More links exist)
 
@@ -65,6 +68,7 @@ Links from 'Jack the Ripper' (10 shown)
 10. Alcohol dependence
 
 C:\Users\Administrator\scripts>**wiki find** Edgar Allan Poe
+
 Best match for 'Edgar Allan Poe':
 
 Edgar Allan Poe
