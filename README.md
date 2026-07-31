@@ -1,7 +1,7 @@
 # CommandLineWikipedia
 Find random wikipedia articles, search for topics, get backlinks and outgoing links, all from your terminal.
 
-1. Download the scripts file. 
+1. Download the scripts folder. 
 2. Navigate to that folder in your terminal:
 
 C:\Users\Administrator>cd scripts
