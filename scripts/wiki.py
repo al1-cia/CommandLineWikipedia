@@ -10,7 +10,7 @@ if len(sys.argv) < 2:
     print("Use 'random', 'backlinks', 'search' <query>, 'links' <page_title>, or 'find' <query>")
 else:
     command = sys.argv[1].lower()
-
+    limit = 10
 if command == "random":
     try:
         response = requests.get(
@@ -41,12 +41,13 @@ if command == "random":
         sys.exit(1)
         
 elif command == "backlinks":
-    if len(sys.argv) < 3:
-        print("Usage: wiki backlinks <page_title>")
+    if len(sys.argv) < 4:
+        print("Usage: wiki backlinks <limit> <page_title>")
         sys.exit(1)
     
     try:
-        page_title = " ".join(sys.argv[2:]) 
+        limit = int(sys.argv[2])
+        page_title = " ".join(sys.argv[3:]) 
         response = requests.get(
             "https://en.wikipedia.org/w/api.php",
             params={
@@ -54,7 +55,7 @@ elif command == "backlinks":
                 "list": "backlinks",
                 "bltitle": page_title,
                 "blnamespace": 0,
-                "bllimit": 10,
+                "bllimit": limit,
                 "format": "json"
             },
             headers=HEADERS,
@@ -70,7 +71,7 @@ elif command == "backlinks":
             sys.exit(0)
         
         print(f"Pages linking to '{page_title}':")
-        for i, link in enumerate(backlinks[:10], start=1):
+        for i, link in enumerate(backlinks[:limit], start=1):
             print(f"{i}. {link['title']}")
             
     except requests.exceptions.Timeout:
@@ -115,7 +116,7 @@ elif command == "search":
             sys.exit(0)
         
         print(f"Results for '{query}':")
-        for i, result in enumerate(results[:10], start=1):
+        for i, result in enumerate(results[:limit], start=1):
             print(f"{i}. {result['title']}")
             
     except requests.exceptions.Timeout:
@@ -132,12 +133,13 @@ elif command == "search":
         print(f"Error: {e}")
         sys.exit(1)
 elif command == "links":
-    if len(sys.argv) < 3:
-        print("Usage: python wiki.py links <page_title>")
+    if len(sys.argv) < 4:
+        print("Usage: wiki links <limit> <page_title>")
         sys.exit(1)
     
     try:
-        query = " ".join(sys.argv[2:])
+        limit = int(sys.argv[2])
+        query = " ".join(sys.argv[3:])
         
         # Search for exact title first
         search_response = requests.get(
@@ -170,7 +172,7 @@ elif command == "links":
                 "titles": exact_title,
                 "prop": "links",
                 "plnamespace": 0,
-                "pllimit": 10,
+                "pllimit": limit,
                 "format": "json"
             },
             headers=HEADERS,
@@ -202,7 +204,7 @@ elif command == "links":
         sys.exit(1)
 elif command == "find":
     if len(sys.argv) < 3:
-        print("Usage: python wiki.py find <search_query>")
+        print("Usage: wiki find <search_query>")
         sys.exit(1)
     
     try:
