@@ -10,6 +10,7 @@ C:\Users\Administrator>cd scripts
 ## Below are the 5 commands and their results:
 
 C:\Users\Administrator\scripts>**wiki**
+
 Use 'random', 'backlinks', 'search' <query>, 'links' <page_title>, or 'find' <query>
 
 Dinah Eckerle
